@@ -463,3 +463,4 @@ async function getProductById(id) {
     const products = await loadProductsFromXML();
     return products.find(p => p.id === id) || null;
 }
+

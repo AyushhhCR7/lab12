@@ -160,3 +160,4 @@ http://localhost:8000
   - `SUMMER20` - 20% discount on entire cart
   - `WELCOME15` - 15% discount on entire cart
   - `SAVE10` - 10% discount on entire cart
+

@@ -154,3 +154,4 @@ function showToast(message, type = 'success') {
 
 // Auto update badge on DOM ready
 document.addEventListener('DOMContentLoaded', updateCartBadges);
+
