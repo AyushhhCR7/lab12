@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact &amp; Customer Support | ShopVerse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="brand-logo">
+                    <span class="logo-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </span>
+                    <span>Shop<span class="accent-text">Verse</span></span>
+                </a>
+
+                <div class="nav-search">
+                    <form id="navbarSearchForm">
+                        <input type="text" id="navbarSearchInput" placeholder="Search catalog..." autocomplete="off">
+                        <button type="submit" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                    </form>
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </a>
+
+                    <div class="nav-auth-container"></div>
+
+                    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Contact Us</span>
+            </div>
+            <h1 style="margin-top: 0.5rem;">We're Here to Help</h1>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Have questions regarding an order, shipment, or product details? Reach out anytime.</p>
+        </div>
+    </section>
+
+    <!-- Main Contact Container -->
+    <main class="container" style="margin-bottom: 5rem;">
+        <!-- Contact Information Cards -->
+        <div class="contact-cards-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Headquarters</h3>
+                <p>42 Silicon Boulevard, Suite 500<br>San Francisco, CA 94107, USA</p>
+                <span style="display: inline-block; margin-top: 0.8rem; font-size: 0.85rem; color: var(--primary); font-weight: 600;">Mon - Sat: 9:00 AM - 8:00 PM</span>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h3>Phone &amp; WhatsApp</h3>
+                <p>Toll-Free Customer Care:<br><strong>+1 (800) 555-SHOP (7467)</strong></p>
+                <span style="display: inline-block; margin-top: 0.8rem; font-size: 0.85rem; color: var(--success); font-weight: 600;">Available 24 Hours / 7 Days</span>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email Support</h3>
+                <p>Direct Inquiries &amp; Orders:<br><strong>support@shopverse.com</strong></p>
+                <span style="display: inline-block; margin-top: 0.8rem; font-size: 0.85rem; color: var(--primary); font-weight: 600;">Average reply within 2 hours</span>
+            </div>
+        </div>
+
+        <!-- Contact Form & FAQs Grid -->
+        <div class="contact-main-grid">
+            <!-- Contact Inquiry Form -->
+            <div class="contact-form-box">
+                <h2>Send Us a Message</h2>
+                <p>Fill out the form below and one of our dedicated specialists will respond promptly.</p>
+
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Your Name *</label>
+                            <input type="text" id="contactName" required placeholder="Ayush Kumar">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address *</label>
+                            <input type="email" id="contactEmail" required placeholder="ayush@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactSubject">Subject / Inquiry Type *</label>
+                            <select id="contactSubject" required>
+                                <option value="Order Status">Order Status &amp; Tracking</option>
+                                <option value="Product Details">Product Specs &amp; XML Inquiry</option>
+                                <option value="Returns & Refunds">Return, Exchange or Refund</option>
+                                <option value="Billing & Payment">Billing or Coupon Issue</option>
+                                <option value="General Feedback" selected>General Feedback or Question</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactOrderRef">Order Reference (Optional)</label>
+                            <input type="text" id="contactOrderRef" placeholder="e.g. SV-2026-98124">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage">Your Message *</label>
+                        <textarea id="contactMessage" rows="5" required placeholder="Write your message here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-checkout-proceed" style="margin-top: 0.5rem;">
+                        Send Message &rarr;
+                    </button>
+                </form>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-box" id="faq">
+                <h3>Frequently Asked Questions</h3>
+
+                <div class="faq-item active">
+                    <button class="faq-question" type="button">
+                        <span>How is the product data loaded?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        All product data is housed in structured XML (<code>data/products.xml</code>). When you navigate the catalog, our JavaScript XML parser reads the document using native <code>DOMParser</code> and <code>getElementsByTagName</code> to construct the catalog dynamically.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>What are standard shipping fees?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        We offer 100% FREE Standard Shipping on all cart orders exceeding $50.00. For smaller orders under $50, flat-rate shipping is $9.99. Express delivery is also available at checkout.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>How does the 30-day return policy work?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        If you're not completely satisfied with your purchase, you may initiate a return within 30 days of delivery. All items in original condition with packaging will receive an immediate full refund.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>What promo codes are available?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        You can use voucher code <strong>SUMMER20</strong> for 20% off your entire order, <strong>WELCOME15</strong> for 15% off, or <strong>SAVE10</strong> for 10% off directly on the Cart page!
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <span>Which payment methods are accepted?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        We accept Visa, MasterCard, American Express, UPI Virtual Payment Addresses, and Cash on Delivery (COD) across eligible delivery zones.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <span class="logo-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </span>
+                        <span>Shop<span class="accent-text">Verse</span></span>
+                    </a>
+                    <p>Designed with clean HTML, CSS, JavaScript and XML. Complete full-featured client-side e-commerce platform.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Help Desk</a></li>
+                        <li><a href="#faq">Frequently Asked Questions</a></li>
+                        <li><a href="cart.html">Manage Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>XML Data Engine</h4>
+                    <p style="font-size: 0.88rem; margin-bottom: 0.8rem;">Every product in this catalog is loaded from a structured XML document.</p>
+                    <a href="data/products.xml" target="_blank" class="nav-btn nav-btn-outline" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;">
+                        View products.xml
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2026</span> ShopVerse Inc. All rights reserved.</p>
+                <p>Engineered with HTML5, CSS3, JavaScript &amp; XML</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/xml-loader.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Auto fill active user name & email if logged in
+            const activeUser = getCurrentUser();
+            if (activeUser) {
+                document.getElementById('contactName').value = activeUser.name;
+                document.getElementById('contactEmail').value = activeUser.email;
+            }
+
+            // FAQ accordion click toggles
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const btn = item.querySelector('.faq-question');
+                btn.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    // Close others
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Contact Form Submit Handler
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('contactName').value;
+                showToast(`Thank you, ${name}! Your inquiry has been sent to our customer care team.`, 'success');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>

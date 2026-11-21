@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Catalog | ShopVerse (Loaded from XML)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="brand-logo">
+                    <span class="logo-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </span>
+                    <span>Shop<span class="accent-text">Verse</span></span>
+                </a>
+
+                <div class="nav-search">
+                    <form id="navbarSearchForm">
+                        <input type="text" id="navbarSearchInput" placeholder="Search catalog..." autocomplete="off">
+                        <button type="submit" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                    </form>
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="products.html" class="nav-link active">Products</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </a>
+
+                    <div class="nav-auth-container"></div>
+
+                    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title & Breadcrumb -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Products Catalog</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
+                <div>
+                    <h1>Product Catalog</h1>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                        Data dynamically loaded from <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-weight: 600; color: #1e293b;">data/products.xml</code> via DOMParser
+                    </p>
+                </div>
+                <div style="font-size: 0.85rem; background: var(--primary-light); color: var(--primary); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); font-weight: 600;">
+                    XML Data Source Active &bull; <a href="data/products.xml" target="_blank" style="text-decoration: underline;">View XML</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Products Section -->
+    <main class="container" style="margin-bottom: 5rem;">
+        <div class="products-layout">
+            <!-- Sidebar Filters -->
+            <aside class="filter-sidebar">
+                <div class="filter-header">
+                    <h3>Filters</h3>
+                    <button class="btn-reset-filters" id="btnResetFilters">Reset All</button>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-group-title">Categories</h4>
+                    <ul class="category-filter-list" id="categoryFilterList">
+                        <li>
+                            <button class="category-filter-btn active" data-category="All">
+                                <span>All Products</span>
+                                <span class="cat-count" id="count-all">0</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-filter-btn" data-category="Electronics">
+                                <span>Electronics</span>
+                                <span class="cat-count" id="count-electronics">0</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-filter-btn" data-category="Accessories">
+                                <span>Accessories</span>
+                                <span class="cat-count" id="count-accessories">0</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-filter-btn" data-category="Fashion">
+                                <span>Fashion</span>
+                                <span class="cat-count" id="count-fashion">0</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-filter-btn" data-category="Footwear">
+                                <span>Footwear</span>
+                                <span class="cat-count" id="count-footwear">0</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="category-filter-btn" data-category="Home & Living">
+                                <span>Home &amp; Living</span>
+                                <span class="cat-count" id="count-homeliving">0</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Price Range Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-group-title">Price Range</h4>
+                    <div class="price-range-inputs">
+                        <input type="range" class="price-slider" id="priceRangeSlider" min="0" max="350" step="10" value="350">
+                        <div class="price-labels">
+                            <span>$0</span>
+                            <span>Max: <strong id="priceDisplay">$350</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- In Stock Filter -->
+                <div class="filter-group">
+                    <h4 class="filter-group-title">Availability</h4>
+                    <label class="stock-toggle-label">
+                        <input type="checkbox" id="inStockOnlyCheckbox">
+                        <span>In Stock Only</span>
+                    </label>
+                </div>
+            </aside>
+
+            <!-- Products Content Area -->
+            <section class="products-content">
+                <!-- Toolbar: search, sorting, count -->
+                <div class="products-toolbar">
+                    <div class="products-count" id="productsCountText">
+                        Showing <strong>0</strong> products
+                    </div>
+
+                    <div class="toolbar-controls">
+                        <input type="text" id="localSearchInput" class="search-filter-input" placeholder="Filter by name or keyword...">
+                        
+                        <select id="sortSelect" class="sort-select" aria-label="Sort products">
+                            <option value="default">Featured First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="name-asc">Name: A to Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="productsGrid" class="products-grid">
+                    <!-- Loaded dynamically via XML -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <div class="empty-state-icon">🔍</div>
+                    <h3>No products matched your criteria</h3>
+                    <p>Try adjusting your category selection, increasing the price range, or clearing your search query.</p>
+                    <button class="nav-btn nav-btn-primary" onclick="resetAllFilters()">Reset All Filters</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <span class="logo-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </span>
+                        <span>Shop<span class="accent-text">Verse</span></span>
+                    </a>
+                    <p>Designed with clean HTML, CSS, JavaScript and XML. Complete full-featured client-side e-commerce platform.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Accessories">Accessories</a></li>
+                        <li><a href="products.html?category=Fashion">Fashion</a></li>
+                        <li><a href="products.html?category=Footwear">Footwear</a></li>
+                        <li><a href="products.html?category=Home%20%26%20Living">Home &amp; Living</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>XML Data Engine</h4>
+                    <p style="font-size: 0.88rem; margin-bottom: 0.8rem;">Every product in this catalog is loaded from a structured XML document and parsed using native JavaScript XML DOM methods.</p>
+                    <a href="data/products.xml" target="_blank" class="nav-btn nav-btn-outline" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;">
+                        View products.xml
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2026</span> ShopVerse Inc. All rights reserved.</p>
+                <p>Engineered with HTML5, CSS3, JavaScript &amp; XML</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/xml-loader.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let allProducts = [];
+        let selectedCategory = 'All';
+        let maxPrice = 350;
+        let inStockOnly = false;
+        let searchQuery = '';
+        let sortMode = 'default';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Read query params from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('category')) {
+                selectedCategory = urlParams.get('category');
+            }
+            if (urlParams.has('search')) {
+                searchQuery = urlParams.get('search');
+                document.getElementById('localSearchInput').value = searchQuery;
+            }
+
+            try {
+                allProducts = await loadProductsFromXML();
+                updateCategoryCounts();
+                highlightActiveCategory();
+                setupFilterListeners();
+                applyFiltersAndRender();
+            } catch (err) {
+                console.error('Failed to load products from XML:', err);
+                document.getElementById('productsGrid').innerHTML = '<p class="error-msg">Error loading catalog from XML file.</p>';
+            }
+        });
+
+        function updateCategoryCounts() {
+            const countAll = allProducts.length;
+            const countElectronics = allProducts.filter(p => p.category === 'Electronics').length;
+            const countAccessories = allProducts.filter(p => p.category === 'Accessories').length;
+            const countFashion = allProducts.filter(p => p.category === 'Fashion').length;
+            const countFootwear = allProducts.filter(p => p.category === 'Footwear').length;
+            const countHomeLiving = allProducts.filter(p => p.category.includes('Home')).length;
+
+            const elAll = document.getElementById('count-all');
+            const elElec = document.getElementById('count-electronics');
+            const elAcc = document.getElementById('count-accessories');
+            const elFash = document.getElementById('count-fashion');
+            const elFoot = document.getElementById('count-footwear');
+            const elHome = document.getElementById('count-homeliving');
+
+            if (elAll) elAll.textContent = countAll;
+            if (elElec) elElec.textContent = countElectronics;
+            if (elAcc) elAcc.textContent = countAccessories;
+            if (elFash) elFash.textContent = countFashion;
+            if (elFoot) elFoot.textContent = countFootwear;
+            if (elHome) elHome.textContent = countHomeLiving;
+        }
+
+        function highlightActiveCategory() {
+            document.querySelectorAll('.category-filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-category').toLowerCase() === selectedCategory.toLowerCase()) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function setupFilterListeners() {
+            // Category clicks
+            document.querySelectorAll('.category-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    selectedCategory = btn.getAttribute('data-category');
+                    highlightActiveCategory();
+                    applyFiltersAndRender();
+                });
+            });
+
+            // Price range
+            const priceSlider = document.getElementById('priceRangeSlider');
+            const priceDisplay = document.getElementById('priceDisplay');
+            priceSlider.addEventListener('input', (e) => {
+                maxPrice = parseFloat(e.target.value);
+                priceDisplay.textContent = `$${maxPrice}`;
+                applyFiltersAndRender();
+            });
+
+            // In stock checkbox
+            const stockCheckbox = document.getElementById('inStockOnlyCheckbox');
+            stockCheckbox.addEventListener('change', (e) => {
+                inStockOnly = e.target.checked;
+                applyFiltersAndRender();
+            });
+
+            // Search input
+            const searchInput = document.getElementById('localSearchInput');
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value.trim().toLowerCase();
+                applyFiltersAndRender();
+            });
+
+            // Sort select
+            const sortSelect = document.getElementById('sortSelect');
+            sortSelect.addEventListener('change', (e) => {
+                sortMode = e.target.value;
+                applyFiltersAndRender();
+            });
+
+            // Reset button
+            document.getElementById('btnResetFilters').addEventListener('click', resetAllFilters);
+        }
+
+        function resetAllFilters() {
+            selectedCategory = 'All';
+            maxPrice = 350;
+            inStockOnly = false;
+            searchQuery = '';
+            sortMode = 'default';
+
+            document.getElementById('priceRangeSlider').value = 350;
+            document.getElementById('priceDisplay').textContent = '$350';
+            document.getElementById('inStockOnlyCheckbox').checked = false;
+            document.getElementById('localSearchInput').value = '';
+            document.getElementById('sortSelect').value = 'default';
+
+            highlightActiveCategory();
+            applyFiltersAndRender();
+        }
+
+        function applyFiltersAndRender() {
+            let filtered = allProducts.filter(p => {
+                // Category match
+                if (selectedCategory !== 'All') {
+                    if (selectedCategory.includes('Home') && !p.category.includes('Home')) return false;
+                    if (!selectedCategory.includes('Home') && p.category.toLowerCase() !== selectedCategory.toLowerCase()) return false;
+                }
+
+                // Price match
+                if (p.price > maxPrice) return false;
+
+                // In stock match
+                if (inStockOnly && !p.inStock) return false;
+
+                // Search query match
+                if (searchQuery) {
+                    const matchName = p.name.toLowerCase().includes(searchQuery);
+                    const matchCategory = p.category.toLowerCase().includes(searchQuery);
+                    const matchDesc = p.shortDescription.toLowerCase().includes(searchQuery) || p.description.toLowerCase().includes(searchQuery);
+                    const matchTags = p.tags && p.tags.some(t => t.toLowerCase().includes(searchQuery));
+                    if (!matchName && !matchCategory && !matchDesc && !matchTags) return false;
+                }
+
+                return true;
+            });
+
+            // Sort logic
+            if (sortMode === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortMode === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortMode === 'rating') {
+                filtered.sort((a, b) => b.rating - a.rating);
+            } else if (sortMode === 'name-asc') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            } else {
+                // Featured first
+                filtered.sort((a, b) => (b.featured === true ? 1 : 0) - (a.featured === true ? 1 : 0));
+            }
+
+            renderProducts(filtered);
+        }
+
+        function renderProducts(products) {
+            const grid = document.getElementById('productsGrid');
+            const emptyState = document.getElementById('emptyState');
+            const countText = document.getElementById('productsCountText');
+
+            countText.innerHTML = `Showing <strong>${products.length}</strong> of ${allProducts.length} products`;
+
+            if (products.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            emptyState.style.display = 'none';
+
+            grid.innerHTML = products.map(product => {
+                const discount = product.originalPrice > product.price 
+                    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
+                    : 0;
+
+                return `
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy">
+                            <div class="product-badge-overlay">
+                                ${product.featured ? '<span class="badge-tag badge-featured">Featured</span>' : ''}
+                                ${discount > 0 ? `<span class="badge-tag badge-sale">-${discount}%</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="product-details">
+                            <span class="product-category-text">${product.category}</span>
+                            <h3 class="product-title">
+                                <a href="product-details.html?id=${product.id}">${product.name}</a>
+                            </h3>
+                            <div class="product-rating">
+                                ${renderStars(product.rating)}
+                                <span class="rating-number">(${product.reviewsCount})</span>
+                            </div>
+                            <div class="product-price-row">
+                                <span class="current-price">${formatCurrency(product.price)}</span>
+                                ${product.originalPrice > product.price ? `<span class="original-price">${formatCurrency(product.originalPrice)}</span>` : ''}
+                                ${discount > 0 ? `<span class="discount-pill">${discount}% OFF</span>` : ''}
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn-add-cart" onclick='addToCart(${JSON.stringify(product).replace(/'/g, "&#39;")}, 1)'>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                    <span>Add</span>
+                                </button>
+                                <a href="product-details.html?id=${product.id}" class="btn-view-details" title="View details">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+    </script>
+</body>
+</html>

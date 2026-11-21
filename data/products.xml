@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <product id="prod-101">
+        <name>Aura Pro Wireless Noise-Cancelling Headphones</name>
+        <category>Electronics</category>
+        <price>249.99</price>
+        <originalPrice>329.99</originalPrice>
+        <rating>4.8</rating>
+        <reviewsCount>342</reviewsCount>
+        <featured>true</featured>
+        <inStock>true</inStock>
+        <stockCount>28</stockCount>
+        <image>https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Premium active noise cancellation with 40-hour battery life and spatial audio.</shortDescription>
+        <description>Immerse yourself in rich, high-fidelity acoustics with the Aura Pro. Featuring next-generation active noise cancellation, custom 40mm titanium drivers, and up to 40 hours of playtime. Ultra-soft memory foam earcups offer all-day listening comfort, while dual beamforming microphones ensure crystal-clear voice clarity during calls.</description>
+        <specifications>
+            <spec name="Connectivity">Bluetooth 5.3, 3.5mm Aux</spec>
+            <spec name="Battery Life">Up to 40 hours (ANC on)</spec>
+            <spec name="Driver Size">40mm Custom Titanium</spec>
+            <spec name="Weight">255g</spec>
+            <spec name="Charging">USB-C Fast Charging (10 mins = 5 hrs)</spec>
+        </specifications>
+        <tags>
+            <tag>wireless</tag>
+            <tag>headphones</tag>
+            <tag>audio</tag>
+            <tag>bluetooth</tag>
+        </tags>
+    </product>
+
+    <product id="prod-102">
+        <name>Chronos Titan Smart Watch 42mm</name>
+        <category>Accessories</category>
+        <price>199.50</price>
+        <originalPrice>259.00</originalPrice>
+        <rating>4.7</rating>
+        <reviewsCount>215</reviewsCount>
+        <featured>true</featured>
+        <inStock>true</inStock>
+        <stockCount>15</stockCount>
+        <image>https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Sleek AMOLED smartwatch with continuous ECG, heart rate, and 7-day battery.</shortDescription>
+        <description>The Chronos Titan balances classic luxury watch aesthetics with cutting-edge fitness intelligence. Features a brilliant sapphire glass AMOLED screen, aircraft-grade titanium chassis, 5ATM water resistance, continuous health metrics monitoring, and seamless notification synchronization with iOS and Android devices.</description>
+        <specifications>
+            <spec name="Display">1.43-inch AMOLED (466x466)</spec>
+            <spec name="Water Resistance">5ATM (Up to 50 meters)</spec>
+            <spec name="Battery">7 Days Typical Usage</spec>
+            <spec name="Sensors">ECG, SpO2, Heart Rate, Accelerometer, Barometer</spec>
+            <spec name="Compatibility">Android 8.0+ and iOS 13.0+</spec>
+        </specifications>
+        <tags>
+            <tag>smartwatch</tag>
+            <tag>fitness</tag>
+            <tag>wearables</tag>
+        </tags>
+    </product>
+
+    <product id="prod-103">
+        <name>Lumina Mechanical Gaming Keyboard RGB</name>
+        <category>Electronics</category>
+        <price>129.00</price>
+        <originalPrice>169.00</originalPrice>
+        <rating>4.9</rating>
+        <reviewsCount>512</reviewsCount>
+        <featured>true</featured>
+        <inStock>true</inStock>
+        <stockCount>42</stockCount>
+        <image>https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Hot-swappable linear switches, per-key RGB backlight, and aircraft aluminum plate.</shortDescription>
+        <description>Engineered for competitive esports and tireless typists. Features hot-swappable tactile linear switches, double-shot PBT keycaps, sound dampening silicone gaskets, and fully programmable per-key dynamic RGB illumination with onboard profile storage.</description>
+        <specifications>
+            <spec name="Switch Type">Hot-Swappable Custom Red Linear</spec>
+            <spec name="Layout">Compact 75% Layout</spec>
+            <spec name="Keycaps">Double-Shot PBT</spec>
+            <spec name="Connection">Tri-Mode (2.4GHz, Bluetooth 5.1, Detachable Type-C)</spec>
+            <spec name="Backlight">16.8M Color RGB</spec>
+        </specifications>
+        <tags>
+            <tag>keyboard</tag>
+            <tag>gaming</tag>
+            <tag>pc</tag>
+        </tags>
+    </product>
+
+    <product id="prod-104">
+        <name>Verve Ergonomic Urban Backpack 25L</name>
+        <category>Fashion</category>
+        <price>79.99</price>
+        <originalPrice>99.99</originalPrice>
+        <rating>4.6</rating>
+        <reviewsCount>189</reviewsCount>
+        <featured>false</featured>
+        <inStock>true</inStock>
+        <stockCount>35</stockCount>
+        <image>https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Weatherproof Cordura travel backpack with 16-inch padded laptop vault.</shortDescription>
+        <description>Crafted for modern commuters and weekend explorers. Constructed from resilient 900D water-repellent recycled nylon, featuring quick-access magnetic buckle closures, hidden anti-theft passport pocket, cushioned ventilated back harness, and padded sleeves for both a 16-inch laptop and tablet.</description>
+        <specifications>
+            <spec name="Capacity">25 Liters</spec>
+            <spec name="Laptop Compartment">Fits up to 16-inch MacBook Pro</spec>
+            <spec name="Material">900D Recycled Cordura Nylon</spec>
+            <spec name="Dimensions">48 x 30 x 16 cm</spec>
+            <spec name="Weather Resistance">Water-Repellent Polyurethane Coating</spec>
+        </specifications>
+        <tags>
+            <tag>backpack</tag>
+            <tag>travel</tag>
+            <tag>fashion</tag>
+            <tag>bags</tag>
+        </tags>
+    </product>
+
+    <product id="prod-105">
+        <name>AeroStride Pro Running Sneakers</name>
+        <category>Footwear</category>
+        <price>145.00</price>
+        <originalPrice>180.00</originalPrice>
+        <rating>4.8</rating>
+        <reviewsCount>420</reviewsCount>
+        <featured>true</featured>
+        <inStock>true</inStock>
+        <stockCount>20</stockCount>
+        <image>https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Carbon fiber propulsion plate with responsive responsive foam cushioning.</shortDescription>
+        <description>Set your personal best with the AeroStride Pro. Engineered with dual-density nitrogen-infused foam and an embedded full-length carbon composite plate that propels you forward with every stride. Breathable engineered mesh upper keeps your feet cool under high-intensity miles.</description>
+        <specifications>
+            <spec name="Plate">Full-Length Curved Carbon Fiber</spec>
+            <spec name="Midsole">Nitro-Infused Responsive Superfoam</spec>
+            <spec name="Drop">8mm Heel-to-Toe Offset</spec>
+            <spec name="Weight">210g (Men's US 9)</spec>
+            <spec name="Outsole">High-Abrasion Wet-Grip Rubber</spec>
+        </specifications>
+        <tags>
+            <tag>shoes</tag>
+            <tag>sneakers</tag>
+            <tag>running</tag>
+            <tag>footwear</tag>
+        </tags>
+    </product>
+
+    <product id="prod-106">
+        <name>Minimalist Ceramic Pour-Over Coffee Maker</name>
+        <category>Home &amp; Living</category>
+        <price>48.00</price>
+        <originalPrice>65.00</originalPrice>
+        <rating>4.5</rating>
+        <reviewsCount>112</reviewsCount>
+        <featured>false</featured>
+        <inStock>true</inStock>
+        <stockCount>50</stockCount>
+        <image>https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Artisan matte ceramic dripper set with borosilicate heat-resistant carafe.</shortDescription>
+        <description>Elevate your morning coffee ritual. Handcrafted stoneware dripper with internal spiral extraction ribs designed to optimize coffee bloom and extract complex floral and fruity notes. Includes a 600ml heat-resistant borosilicate glass server with laser-etched measurement markings.</description>
+        <specifications>
+            <spec name="Carafe Capacity">600ml (2-4 Cups)</spec>
+            <spec name="Material">High-Fired Glazed Ceramic &amp; Borosilicate Glass</spec>
+            <spec name="Filter Compatibility">V60 02 Paper or Stainless Steel Filters</spec>
+            <spec name="Dishwasher Safe">Yes</spec>
+        </specifications>
+        <tags>
+            <tag>coffee</tag>
+            <tag>kitchen</tag>
+            <tag>home</tag>
+        </tags>
+    </product>
+
+    <product id="prod-107">
+        <name>Zenith Ultra-Slim Wireless Power Bank 15W</name>
+        <category>Electronics</category>
+        <price>49.99</price>
+        <originalPrice>69.99</originalPrice>
+        <rating>4.7</rating>
+        <reviewsCount>276</reviewsCount>
+        <featured>false</featured>
+        <inStock>true</inStock>
+        <stockCount>65</stockCount>
+        <image>https://images.unsplash.com/photo-1609592424368-f9463c1965fe?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1609592424368-f9463c1965fe?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>MagSafe compatible 10,000mAh magnetic portable charger with foldout kickstand.</shortDescription>
+        <description>Snap and go wireless convenience. Features strong N52 neodymium magnets that securely latch onto your smartphone. Offers 15W fast wireless Qi2 charging and 20W Power Delivery output via USB-C. Includes an integrated zinc-alloy kickstand for hands-free video viewing while charging.</description>
+        <specifications>
+            <spec name="Capacity">10,000mAh / 38.5Wh</spec>
+            <spec name="Wireless Output">15W Fast Wireless</spec>
+            <spec name="Wired Output">USB-C PD 20W Max</spec>
+            <spec name="Dimensions">104 x 68 x 15 mm</spec>
+            <spec name="Weight">190g</spec>
+        </specifications>
+        <tags>
+            <tag>powerbank</tag>
+            <tag>charger</tag>
+            <tag>gadgets</tag>
+        </tags>
+    </product>
+
+    <product id="prod-108">
+        <name>Nordic Walnut Wood Desk Lamp with Wireless Pad</name>
+        <category>Home &amp; Living</category>
+        <price>89.00</price>
+        <originalPrice>119.00</originalPrice>
+        <rating>4.8</rating>
+        <reviewsCount>143</reviewsCount>
+        <featured>true</featured>
+        <inStock>true</inStock>
+        <stockCount>18</stockCount>
+        <image>https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Touch-controlled dimmable LED architect lamp with genuine solid walnut base.</shortDescription>
+        <description>Harmonize your workspace with Scandinavian minimalism. Crafted from FSC-certified sustainable walnut and brushed matte black aluminum. Features eye-caring flicker-free LEDs with 5 color temperatures, step-less sliding touch dimming, and an integrated 10W wireless charging cradle in the base.</description>
+        <specifications>
+            <spec name="Luminance">800 Lumens (CRI &gt; 95)</spec>
+            <spec name="Color Temperatures">2700K to 6500K (5 Presets)</spec>
+            <spec name="Base Features">10W Qi Wireless Fast Charger</spec>
+            <spec name="Power Consumption">12W Max</spec>
+            <spec name="Arm Adjustability">180-degree multi-axis rotation</spec>
+        </specifications>
+        <tags>
+            <tag>lamp</tag>
+            <tag>desk</tag>
+            <tag>lighting</tag>
+            <tag>home</tag>
+        </tags>
+    </product>
+
+    <product id="prod-109">
+        <name>Classic Polarized Aviator Sunglasses</name>
+        <category>Accessories</category>
+        <price>65.00</price>
+        <originalPrice>85.00</originalPrice>
+        <rating>4.6</rating>
+        <reviewsCount>98</reviewsCount>
+        <featured>false</featured>
+        <inStock>true</inStock>
+        <stockCount>40</stockCount>
+        <image>https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>UV400 anti-glare polarized teardrop sunglasses with gold metal frame.</shortDescription>
+        <description>Timeless silhouette reimagined with modern optical precision. Triacetate cellulose polarized lenses eliminate 99.9% of reflective glare while preserving true color fidelity. Features lightweight corrosion-resistant stainless alloy frames with adjustable silicone nose pads.</description>
+        <specifications>
+            <spec name="Lens Technology">UV400 Polarized TAC Lens</spec>
+            <spec name="Frame Material">Stainless Steel Alloy</spec>
+            <spec name="Lens Width">58 mm</spec>
+            <spec name="Bridge Width">14 mm</spec>
+            <spec name="Case Included">Hard Leatherette Storage Case</spec>
+        </specifications>
+        <tags>
+            <tag>sunglasses</tag>
+            <tag>fashion</tag>
+            <tag>accessories</tag>
+        </tags>
+    </product>
+
+    <product id="prod-110">
+        <name>Organic Cotton Oversized Essential Hoodie</name>
+        <category>Fashion</category>
+        <price>58.00</price>
+        <originalPrice>75.00</originalPrice>
+        <rating>4.9</rating>
+        <reviewsCount>310</reviewsCount>
+        <featured>false</featured>
+        <inStock>true</inStock>
+        <stockCount>55</stockCount>
+        <image>https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Heavyweight 450 GSM French terry hoodie in washed charcoal tone.</shortDescription>
+        <description>The ultimate everyday luxury hoodie. Meticulously cut from 450 GSM combed organic cotton French terry. Features drop shoulders, a double-layered structured hood with no drawstrings for a sleek silhouette, kangaroo front pouch, and ribbed cuffs and hem.</description>
+        <specifications>
+            <spec name="Material">100% GOTS Certified Organic Cotton</spec>
+            <spec name="Fabric Weight">450 GSM Heavyweight Terry</spec>
+            <spec name="Fit">Relaxed Oversized Fit</spec>
+            <spec name="Care">Machine Wash Cold, Hang Dry</spec>
+        </specifications>
+        <tags>
+            <tag>clothing</tag>
+            <tag>hoodie</tag>
+            <tag>fashion</tag>
+            <tag>streetwear</tag>
+        </tags>
+    </product>
+
+    <product id="prod-111">
+        <name>Studio Acoustics Bluetooth Hi-Fi Bookshelf Speakers</name>
+        <category>Electronics</category>
+        <price>189.00</price>
+        <originalPrice>239.00</originalPrice>
+        <rating>4.7</rating>
+        <reviewsCount>165</reviewsCount>
+        <featured>false</featured>
+        <inStock>true</inStock>
+        <stockCount>12</stockCount>
+        <image>https://images.unsplash.com/photo-1545454675-3531b543be5d?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1545454675-3531b543be5d?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>66W RMS studio-grade wooden monitors with optical, RCA, and Bluetooth 5.0.</shortDescription>
+        <description>Fill your room with studio-grade sound. High-density MDF wooden enclosures reduce acoustic resonance. Equipped with 4-inch bass drivers, 19mm silk dome tweeters, calibrated front bass reflex ports, and dedicated side-panel treble, bass, and volume adjustment dials.</description>
+        <specifications>
+            <spec name="Total Power">66 Watts RMS</spec>
+            <spec name="Inputs">Bluetooth 5.0, Optical, Coaxial, Dual RCA</spec>
+            <spec name="Frequency Response">52Hz - 20KHz</spec>
+            <spec name="Cabinet Material">100% MDF Wooden Housing</spec>
+            <spec name="Remote">Wireless Infrared Remote Included</spec>
+        </specifications>
+        <tags>
+            <tag>speakers</tag>
+            <tag>audio</tag>
+            <tag>hifi</tag>
+            <tag>electronics</tag>
+        </tags>
+    </product>
+
+    <product id="prod-112">
+        <name>Handmade Top-Grain Leather Bifold Wallet</name>
+        <category>Accessories</category>
+        <price>39.50</price>
+        <originalPrice>55.00</originalPrice>
+        <rating>4.8</rating>
+        <reviewsCount>204</reviewsCount>
+        <featured>false</featured>
+        <inStock>true</inStock>
+        <stockCount>48</stockCount>
+        <image>https://images.unsplash.com/photo-1627123424574-724758594e93?w=700&amp;auto=format&amp;fit=crop&amp;q=80</image>
+        <thumbnail>https://images.unsplash.com/photo-1627123424574-724758594e93?w=300&amp;auto=format&amp;fit=crop&amp;q=80</thumbnail>
+        <shortDescription>Vegetable-tanned full-grain leather wallet with integrated RFID blocking shield.</shortDescription>
+        <description>Crafted to age gracefully, developing an authentic patina unique to your journey. Holds 8-10 cards, cash billfold section, and easy-access quick thumb-slide card pocket. Embedded with certified RFID-blocking foil to protect your sensitive contactless cards from electronic skimming.</description>
+        <specifications>
+            <spec name="Leather">Full-Grain Vegetable-Tanned Cowhide</spec>
+            <spec name="Protection">RFID Blocking 13.56 MHz</spec>
+            <spec name="Capacity">8 Card Slots + Full Cash Billfold</spec>
+            <spec name="Stitching">Waxed High-Tensile Polyester Thread</spec>
+        </specifications>
+        <tags>
+            <tag>wallet</tag>
+            <tag>leather</tag>
+            <tag>accessories</tag>
+        </tags>
+    </product>
+</catalog>

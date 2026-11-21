@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | ShopVerse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="brand-logo">
+                    <span class="logo-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </span>
+                    <span>Shop<span class="accent-text">Verse</span></span>
+                </a>
+
+                <div class="nav-search">
+                    <form id="navbarSearchForm">
+                        <input type="text" id="navbarSearchInput" placeholder="Search catalog..." autocomplete="off">
+                        <button type="submit" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                    </form>
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </a>
+
+                    <div class="nav-auth-container"></div>
+
+                    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Breadcrumb -->
+    <section class="page-header" style="padding: 1.5rem 0; margin-bottom: 2rem;">
+        <div class="container">
+            <div class="breadcrumb" id="detailBreadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="products.html">Products</a>
+                <span class="breadcrumb-separator">/</span>
+                <span id="breadcrumbProductCategory">Category</span>
+                <span class="breadcrumb-separator">/</span>
+                <span id="breadcrumbProductName" style="color: var(--text-main); font-weight: 600;">Product</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Container -->
+    <main class="container" style="margin-bottom: 5rem;">
+        <div id="productDetailLoading" style="text-align: center; padding: 4rem;">
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Loading product details from XML...</p>
+        </div>
+
+        <div id="productDetailContent" style="display: none;">
+            <div class="product-detail-grid">
+                <!-- Gallery -->
+                <div class="detail-gallery">
+                    <div class="main-image-frame">
+                        <img id="detailMainImage" src="" alt="Product Image">
+                    </div>
+                </div>
+
+                <!-- Product Info & Actions -->
+                <div class="detail-content">
+                    <div class="detail-badge-row">
+                        <span class="badge-tag badge-category" id="detailCategoryBadge">Electronics</span>
+                        <span class="badge-tag badge-sale" id="detailSaleBadge" style="display: none;">Sale</span>
+                    </div>
+
+                    <h1 class="detail-title" id="detailTitle">Product Title</h1>
+
+                    <div class="detail-rating-row">
+                        <div id="detailRatingStars"></div>
+                        <span class="rating-number" id="detailReviewCount">(0 reviews)</span>
+                        <span style="color: var(--border-color);">&bull;</span>
+                        <span class="stock-indicator in-stock" id="detailStockStatus">
+                            <span>●</span> In Stock (28 available)
+                        </span>
+                    </div>
+
+                    <div class="detail-price-box">
+                        <span class="detail-price" id="detailPrice">$0.00</span>
+                        <span class="detail-original-price" id="detailOriginalPrice" style="display: none;">$0.00</span>
+                        <span class="discount-pill" id="detailDiscountPill" style="display: none;">0% OFF</span>
+                    </div>
+
+                    <p class="detail-desc" id="detailDescription">
+                        Detailed product description will appear here.
+                    </p>
+
+                    <!-- Meta specifications preview -->
+                    <div class="detail-meta-box">
+                        <div class="detail-meta-item">
+                            <strong>Item Model ID</strong>
+                            <span id="detailProductId">PROD-101</span>
+                        </div>
+                        <div class="detail-meta-item">
+                            <strong>Estimated Delivery</strong>
+                            <span>2 - 4 Business Days</span>
+                        </div>
+                        <div class="detail-meta-item">
+                            <strong>Warranty</strong>
+                            <span>2-Year Comprehensive Guarantee</span>
+                        </div>
+                        <div class="detail-meta-item">
+                            <strong>Returns</strong>
+                            <span>Free 30-Day Hassle-Free Returns</span>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Add to Cart -->
+                    <div class="detail-actions-row">
+                        <div class="qty-control">
+                            <button class="qty-btn" id="qtyDecrementBtn" aria-label="Decrease quantity">&minus;</button>
+                            <input type="number" id="detailQtyInput" class="qty-input" value="1" min="1" max="99" readonly>
+                            <button class="qty-btn" id="qtyIncrementBtn" aria-label="Increase quantity">&plus;</button>
+                        </div>
+
+                        <button class="btn-detail-add-cart" id="btnDetailAddToCart">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            <span>Add to Cart</span>
+                        </button>
+
+                        <button class="btn-detail-buy-now" id="btnDetailBuyNow">
+                            Buy Now
+                        </button>
+                    </div>
+
+                    <!-- Tags -->
+                    <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Tags:</span>
+                        <div id="detailTagsContainer" style="display: flex; gap: 0.4rem; flex-wrap: wrap;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specifications Table -->
+            <div class="specs-card">
+                <h3>Technical Specifications (Extracted from XML)</h3>
+                <table class="specs-table">
+                    <tbody id="specsTableBody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Customer Reviews Section -->
+            <div class="specs-card" style="margin-bottom: 3rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h3>Verified Customer Reviews</h3>
+                    <button class="nav-btn nav-btn-outline" onclick="showToast('Review submission modal opened. (Demo mode)', 'info')">Write a Review</button>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="padding: 1.2rem; background: var(--bg-body); border-radius: var(--radius-md);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                            <strong>Marcus Vance <span style="color: var(--success); font-size: 0.8rem; font-weight: normal;">✓ Verified Buyer</span></strong>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">2 weeks ago</span>
+                        </div>
+                        <div style="color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.4rem;">★★★★★</div>
+                        <p style="color: var(--text-main); font-size: 0.95rem;">Exceeded my expectations! Build quality is sensational, acoustics and finish are truly top tier. Highly recommended.</p>
+                    </div>
+
+                    <div style="padding: 1.2rem; background: var(--bg-body); border-radius: var(--radius-md);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+                            <strong>Sophia Laurent <span style="color: var(--success); font-size: 0.8rem; font-weight: normal;">✓ Verified Buyer</span></strong>
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">1 month ago</span>
+                        </div>
+                        <div style="color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.4rem;">★★★★★</div>
+                        <p style="color: var(--text-main); font-size: 0.95rem;">Fast delivery, premium packaging, and works seamlessly out of the box. Super glad I picked this up.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products Section -->
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Related Products</h2>
+                    <p class="section-subtitle">You might also appreciate these complementary items</p>
+                </div>
+            </div>
+            <div id="relatedProductsGrid" class="products-grid"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <span class="logo-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </span>
+                        <span>Shop<span class="accent-text">Verse</span></span>
+                    </a>
+                    <p>Designed with clean HTML, CSS, JavaScript and XML. Complete full-featured client-side e-commerce platform.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=Electronics">Electronics</a></li>
+                        <li><a href="products.html?category=Accessories">Accessories</a></li>
+                        <li><a href="products.html?category=Fashion">Fashion</a></li>
+                        <li><a href="products.html?category=Footwear">Footwear</a></li>
+                        <li><a href="products.html?category=Home%20%26%20Living">Home &amp; Living</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Raw XML Data</h4>
+                    <p style="font-size: 0.88rem; margin-bottom: 0.8rem;">Every product attribute on this page is retrieved directly from our XML data model.</p>
+                    <a href="data/products.xml" target="_blank" class="nav-btn nav-btn-outline" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;">
+                        View products.xml
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2026</span> ShopVerse Inc. All rights reserved.</p>
+                <p>Engineered with HTML5, CSS3, JavaScript &amp; XML</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/xml-loader.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let currentProduct = null;
+        let selectedQuantity = 1;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id') || 'prod-101';
+
+            try {
+                const products = await loadProductsFromXML();
+                currentProduct = products.find(p => p.id === productId);
+
+                if (!currentProduct) {
+                    currentProduct = products[0]; // Fallback to first product
+                }
+
+                renderProductDetails(currentProduct);
+                renderRelatedProducts(products, currentProduct);
+            } catch (err) {
+                console.error('Error loading product details:', err);
+                document.getElementById('productDetailLoading').innerHTML = '<p class="error-msg">Could not load product details from XML.</p>';
+            }
+        });
+
+        function renderProductDetails(product) {
+            document.title = `${product.name} | ShopVerse`;
+
+            // Breadcrumbs
+            document.getElementById('breadcrumbProductCategory').textContent = product.category;
+            document.getElementById('breadcrumbProductName').textContent = product.name;
+
+            // Main elements
+            document.getElementById('detailMainImage').src = product.image;
+            document.getElementById('detailMainImage').alt = product.name;
+            document.getElementById('detailCategoryBadge').textContent = product.category;
+            document.getElementById('detailTitle').textContent = product.name;
+            document.getElementById('detailProductId').textContent = product.id.toUpperCase();
+            document.getElementById('detailDescription').textContent = product.description;
+
+            // Rating & Reviews
+            document.getElementById('detailRatingStars').innerHTML = renderStars(product.rating);
+            document.getElementById('detailReviewCount').textContent = `(${product.reviewsCount} customer reviews)`;
+
+            // Stock
+            const stockStatus = document.getElementById('detailStockStatus');
+            if (product.inStock) {
+                stockStatus.className = 'stock-indicator in-stock';
+                stockStatus.innerHTML = `<span>●</span> In Stock (${product.stockCount} units available)`;
+            } else {
+                stockStatus.className = 'stock-indicator out-of-stock';
+                stockStatus.innerHTML = `<span>●</span> Currently Out of Stock`;
+            }
+
+            // Price & discount
+            document.getElementById('detailPrice').textContent = formatCurrency(product.price);
+            if (product.originalPrice > product.price) {
+                const discount = Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+                const origPriceEl = document.getElementById('detailOriginalPrice');
+                const discountPillEl = document.getElementById('detailDiscountPill');
+                const saleBadgeEl = document.getElementById('detailSaleBadge');
+
+                origPriceEl.textContent = formatCurrency(product.originalPrice);
+                origPriceEl.style.display = 'inline';
+                discountPillEl.textContent = `${discount}% OFF`;
+                discountPillEl.style.display = 'inline';
+                saleBadgeEl.textContent = `Save ${discount}%`;
+                saleBadgeEl.style.display = 'inline-block';
+            }
+
+            // Specifications table from XML <spec> tags
+            const specsTbody = document.getElementById('specsTableBody');
+            if (product.specifications && product.specifications.length > 0) {
+                specsTbody.innerHTML = product.specifications.map(s => `
+                    <tr>
+                        <th>${s.name}</th>
+                        <td>${s.value}</td>
+                    </tr>
+                `).join('');
+            } else {
+                specsTbody.innerHTML = '<tr><td colspan="2">Standard manufacturer specifications apply.</td></tr>';
+            }
+
+            // Tags
+            const tagsBox = document.getElementById('detailTagsContainer');
+            if (product.tags && product.tags.length > 0) {
+                tagsBox.innerHTML = product.tags.map(t => `
+                    <span style="background: var(--bg-body); border: 1px solid var(--border-color); padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.8rem; color: var(--text-muted); text-transform: capitalize;">#${t}</span>
+                `).join('');
+            }
+
+            // Quantity stepper
+            const qtyInput = document.getElementById('detailQtyInput');
+            document.getElementById('qtyDecrementBtn').addEventListener('click', () => {
+                if (selectedQuantity > 1) {
+                    selectedQuantity--;
+                    qtyInput.value = selectedQuantity;
+                }
+            });
+            document.getElementById('qtyIncrementBtn').addEventListener('click', () => {
+                if (selectedQuantity < product.stockCount) {
+                    selectedQuantity++;
+                    qtyInput.value = selectedQuantity;
+                } else {
+                    showToast(`Maximum available stock is ${product.stockCount}.`, 'warning');
+                }
+            });
+
+            // Add to cart button
+            document.getElementById('btnDetailAddToCart').addEventListener('click', () => {
+                addToCart(product, selectedQuantity);
+            });
+
+            // Buy now button
+            document.getElementById('btnDetailBuyNow').addEventListener('click', () => {
+                addToCart(product, selectedQuantity);
+                setTimeout(() => {
+                    window.location.href = 'checkout.html';
+                }, 200);
+            });
+
+            // Show content
+            document.getElementById('productDetailLoading').style.display = 'none';
+            document.getElementById('productDetailContent').style.display = 'block';
+        }
+
+        function renderRelatedProducts(allProducts, current) {
+            const related = allProducts
+                .filter(p => p.id !== current.id && (p.category === current.category || p.featured))
+                .slice(0, 4);
+
+            const grid = document.getElementById('relatedProductsGrid');
+            if (!grid) return;
+
+            grid.innerHTML = related.map(prod => `
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="${prod.image}" alt="${prod.name}" loading="lazy">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category-text">${prod.category}</span>
+                        <h3 class="product-title">
+                            <a href="product-details.html?id=${prod.id}">${prod.name}</a>
+                        </h3>
+                        <div class="product-rating">
+                            ${renderStars(prod.rating)}
+                        </div>
+                        <div class="product-price-row">
+                            <span class="current-price">${formatCurrency(prod.price)}</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-add-cart" onclick='addToCart(${JSON.stringify(prod).replace(/'/g, "&#39;")}, 1)'>
+                                <span>Add</span>
+                            </button>
+                            <a href="product-details.html?id=${prod.id}" class="btn-view-details" title="View">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

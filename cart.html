@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | ShopVerse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="brand-logo">
+                    <span class="logo-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </span>
+                    <span>Shop<span class="accent-text">Verse</span></span>
+                </a>
+
+                <div class="nav-search">
+                    <form id="navbarSearchForm">
+                        <input type="text" id="navbarSearchInput" placeholder="Search catalog..." autocomplete="off">
+                        <button type="submit" aria-label="Search">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                    </form>
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="cart.html" class="cart-icon-btn" aria-label="Shopping Cart">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </a>
+
+                    <div class="nav-auth-container"></div>
+
+                    <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Breadcrumb -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Shopping Cart</span>
+            </div>
+            <h1 style="margin-top: 0.5rem;">Your Shopping Cart</h1>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Review your selected items and proceed smoothly to secure checkout.</p>
+        </div>
+    </section>
+
+    <!-- Cart Layout -->
+    <main class="container" style="margin-bottom: 5rem;">
+        <div id="cartEmptyState" class="empty-state" style="display: none;">
+            <div class="empty-state-icon">🛒</div>
+            <h3>Your Cart is Currently Empty</h3>
+            <p>Looks like you haven't added any products to your cart yet.</p>
+            <a href="products.html" class="nav-btn nav-btn-primary">Explore Products</a>
+        </div>
+
+        <div id="cartContentLayout" class="cart-layout">
+            <!-- Left: Items list -->
+            <div class="cart-items-box">
+                <div class="cart-box-header">
+                    <h2>Items (<span id="cartHeaderCount">0</span>)</h2>
+                    <button class="btn-reset-filters" id="btnClearCart" style="color: var(--danger);">Clear Entire Cart</button>
+                </div>
+
+                <div id="cartItemsList">
+                    <!-- Populated dynamically via cart.js -->
+                </div>
+
+                <div class="cart-footer-actions">
+                    <a href="products.html" class="nav-btn nav-btn-outline" style="font-size: 0.88rem;">
+                        &larr; Continue Shopping
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Order Summary -->
+            <div class="order-summary-box">
+                <h3>Order Summary</h3>
+
+                <!-- Free shipping progress bar -->
+                <div class="free-shipping-progress">
+                    <div class="shipping-progress-text" id="shippingProgressText">Add $50.00 for FREE standard shipping!</div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="shippingProgressBar" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="summary-line">
+                    <span>Subtotal</span>
+                    <strong id="summarySubtotal">$0.00</strong>
+                </div>
+
+                <div class="summary-line">
+                    <span>Estimated Shipping</span>
+                    <strong id="summaryShipping">$0.00</strong>
+                </div>
+
+                <div class="summary-line">
+                    <span>Estimated Tax (8%)</span>
+                    <strong id="summaryTax">$0.00</strong>
+                </div>
+
+                <div class="summary-line" id="discountSummaryRow" style="display: none; color: var(--success);">
+                    <span>Coupon Discount</span>
+                    <strong id="summaryDiscount">-$0.00</strong>
+                </div>
+
+                <!-- Promo Coupon Input -->
+                <div class="coupon-box">
+                    <div class="coupon-input-group">
+                        <input type="text" id="couponCodeInput" placeholder="Coupon (e.g. SUMMER20)">
+                        <button type="button" class="btn-apply-coupon" id="btnApplyCoupon">Apply</button>
+                    </div>
+                    <div id="couponAppliedBadge" style="display: none;">
+                        <span class="coupon-applied-tag">
+                            <span id="couponAppliedLabel">SUMMER20 Applied</span>
+                            <button type="button" onclick="removeCoupon()" style="background: none; border: none; cursor: pointer; color: inherit; font-weight: bold;">&times;</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="summary-total-line">
+                    <span>Estimated Total</span>
+                    <span id="summaryGrandTotal" style="color: var(--primary);">$0.00</span>
+                </div>
+
+                <a href="checkout.html" class="btn-checkout-proceed" id="btnProceedCheckout">
+                    Proceed to Checkout &rarr;
+                </a>
+
+                <div style="margin-top: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.82rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <span>Bank-grade 256-bit SSL encrypted checkout</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <span class="logo-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </span>
+                        <span>Shop<span class="accent-text">Verse</span></span>
+                    </a>
+                    <p>Designed with clean HTML, CSS, JavaScript and XML. Complete full-featured client-side e-commerce platform.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Available Promo Codes</h4>
+                    <ul class="footer-links" style="font-size: 0.85rem;">
+                        <li><code>SUMMER20</code> (20% off)</li>
+                        <li><code>WELCOME15</code> (15% off)</li>
+                        <li><code>SAVE10</code> (10% off)</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>XML Data Engine</h4>
+                    <p style="font-size: 0.88rem; margin-bottom: 0.8rem;">Every product in this catalog is loaded from a structured XML document and parsed using native JavaScript XML DOM methods.</p>
+                    <a href="data/products.xml" target="_blank" class="nav-btn nav-btn-outline" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;">
+                        View products.xml
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2026</span> ShopVerse Inc. All rights reserved.</p>
+                <p>Engineered with HTML5, CSS3, JavaScript &amp; XML</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/xml-loader.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let appliedCoupon = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCartPage();
+
+            // Clear cart listener
+            document.getElementById('btnClearCart').addEventListener('click', () => {
+                if (confirm('Are you sure you want to clear your cart?')) {
+                    clearCart();
+                    renderCartPage();
+                }
+            });
+
+            // Coupon code listener
+            document.getElementById('btnApplyCoupon').addEventListener('click', applyCouponCode);
+
+            // Listen for storage changes or custom events
+            window.addEventListener('cartUpdated', () => {
+                renderCartPage();
+            });
+        });
+
+        function applyCouponCode() {
+            const input = document.getElementById('couponCodeInput');
+            const code = input.value.trim().toUpperCase();
+
+            if (!code) {
+                showToast('Please enter a coupon code.', 'warning');
+                return;
+            }
+
+            if (PROMO_CODES[code]) {
+                appliedCoupon = { code, ...PROMO_CODES[code] };
+                localStorage.setItem('shopverse_applied_coupon', JSON.stringify(appliedCoupon));
+                showToast(`Coupon "${code}" applied! (${appliedCoupon.label})`, 'success');
+                input.value = '';
+                renderCartPage();
+            } else {
+                showToast('Invalid coupon code. Try SUMMER20 or SAVE10.', 'error');
+            }
+        }
+
+        function removeCoupon() {
+            appliedCoupon = null;
+            localStorage.removeItem('shopverse_applied_coupon');
+            showToast('Coupon removed.', 'info');
+            renderCartPage();
+        }
+
+        function renderCartPage() {
+            const cart = getCart();
+            const emptyState = document.getElementById('cartEmptyState');
+            const contentLayout = document.getElementById('cartContentLayout');
+            const itemsList = document.getElementById('cartItemsList');
+            const headerCount = document.getElementById('cartHeaderCount');
+
+            // Restore applied coupon from storage if present
+            try {
+                const storedCoupon = localStorage.getItem('shopverse_applied_coupon');
+                if (storedCoupon && !appliedCoupon) {
+                    appliedCoupon = JSON.parse(storedCoupon);
+                }
+            } catch (e) {}
+
+            headerCount.textContent = getCartCount();
+
+            if (cart.length === 0) {
+                emptyState.style.display = 'block';
+                contentLayout.style.display = 'none';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            contentLayout.style.display = 'grid';
+
+            // Render Items
+            itemsList.innerHTML = cart.map(item => {
+                const lineTotal = item.price * item.quantity;
+                return `
+                    <div class="cart-item-row" data-id="${item.id}">
+                        <div class="cart-item-thumb">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-info">
+                            <span class="product-category-text" style="font-size: 0.75rem;">${item.category || 'Product'}</span>
+                            <h4><a href="product-details.html?id=${item.id}">${item.name}</a></h4>
+                            <p>Unit Price: ${formatCurrency(item.price)}</p>
+                        </div>
+                        <div class="qty-control" style="height: 38px;">
+                            <button class="qty-btn" onclick="updateItemQuantity('${item.id}', ${item.quantity - 1})">&minus;</button>
+                            <input type="number" class="qty-input" value="${item.quantity}" min="1" max="99" onchange="updateItemQuantity('${item.id}', this.value)">
+                            <button class="qty-btn" onclick="updateItemQuantity('${item.id}', ${item.quantity + 1})">&plus;</button>
+                        </div>
+                        <div class="cart-item-price">
+                            ${formatCurrency(lineTotal)}
+                        </div>
+                        <button class="cart-item-remove-btn" onclick="handleRemoveItem('${item.id}')" title="Remove item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            // Calculations
+            const subtotal = getCartSubtotal();
+            const freeShippingThreshold = 50;
+            const shipping = subtotal >= freeShippingThreshold || subtotal === 0 ? 0 : 9.99;
+            const tax = subtotal * 0.08;
+
+            let discount = 0;
+            const discountRow = document.getElementById('discountSummaryRow');
+            const discountText = document.getElementById('summaryDiscount');
+            const couponBadge = document.getElementById('couponAppliedBadge');
+            const couponLabel = document.getElementById('couponAppliedLabel');
+
+            if (appliedCoupon) {
+                discount = subtotal * appliedCoupon.discount;
+                discountRow.style.display = 'flex';
+                discountText.textContent = `-${formatCurrency(discount)}`;
+                couponBadge.style.display = 'block';
+                couponLabel.textContent = `${appliedCoupon.code} (${appliedCoupon.label})`;
+            } else {
+                discountRow.style.display = 'none';
+                couponBadge.style.display = 'none';
+            }
+
+            const grandTotal = Math.max(0, subtotal - discount + shipping + tax);
+
+            // Free shipping bar
+            const shippingProgressText = document.getElementById('shippingProgressText');
+            const shippingProgressBar = document.getElementById('shippingProgressBar');
+            if (subtotal >= freeShippingThreshold) {
+                shippingProgressText.innerHTML = '🎉 You qualified for <strong>FREE Standard Shipping</strong>!';
+                shippingProgressBar.style.width = '100%';
+                shippingProgressBar.style.backgroundColor = 'var(--success)';
+            } else {
+                const diff = freeShippingThreshold - subtotal;
+                shippingProgressText.innerHTML = `Add <strong>${formatCurrency(diff)}</strong> more for FREE Shipping!`;
+                const pct = Math.min(100, Math.round((subtotal / freeShippingThreshold) * 100));
+                shippingProgressBar.style.width = `${pct}%`;
+                shippingProgressBar.style.backgroundColor = 'var(--primary)';
+            }
+
+            document.getElementById('summarySubtotal').textContent = formatCurrency(subtotal);
+            document.getElementById('summaryShipping').textContent = shipping === 0 ? 'FREE' : formatCurrency(shipping);
+            document.getElementById('summaryTax').textContent = formatCurrency(tax);
+            document.getElementById('summaryGrandTotal').textContent = formatCurrency(grandTotal);
+        }
+
+        function updateItemQuantity(id, qty) {
+            updateQuantity(id, qty);
+            renderCartPage();
+        }
+
+        function handleRemoveItem(id) {
+            removeFromCart(id);
+            renderCartPage();
+        }
+    </script>
+</body>
+</html>
